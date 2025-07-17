@@ -1,9 +1,8 @@
+# Render.yaml
 services:
   - type: web
     name: brain-tumor-classifier
     runtime: python
-    buildCommand: ./build.sh
+    pythonVersion: "3.8.16"  # Explicit version
+    buildCommand: chmod +x build.sh && ./build.sh
     startCommand: gunicorn app:app
-    envVars:
-      - key: FLASK_ENV
-        value: production
